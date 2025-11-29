@@ -20,7 +20,7 @@ app = FastAPI(title="Resume Analyzer API")
 # CORS middleware for React/Next.js frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Your Next.js dev server
+    allow_origins=["http://localhost:3000", "https://resume-compatibility-checker.vercel.app/"],  # Your Next.js dev server
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
