@@ -6,9 +6,7 @@ import os
 from parsers.pdf_parser import parse_pdf
 from parsers.docx_parser import parse_docx
 from analyzers.keyword_matcher import analyze_resume_match
-from analyzers.semantic_analyzer import analyze_semantic_match
-from analyzers.transformer_analyzer import analyze_with_transformers
-from analyzers.hybrid_analyzer import analyze_hybrid
+# from analyzers.hybrid_analyzer import analyze_hybrid
 from analyzers.openrouter_analyzer import (
     analyze_resume_with_ai,
     enhance_resume_section,
@@ -74,27 +72,27 @@ async def analyze_resume(
                 "result": keyword_analysis
             }
         
-        elif analysis_type == "semantic":
-            # TF-IDF semantic analysis
-            semantic_analysis = analyze_semantic_match(resume_text, job_description)
-            return {
-                "success": True,
-                "filename": resume.filename,
-                "analysis_type": "TF-IDF Semantic Analysis",
-                "result": semantic_analysis
-            }
+        # elif analysis_type == "semantic":
+        #     # TF-IDF semantic analysis
+        #     semantic_analysis = analyze_semantic_match(resume_text, job_description)
+        #     return {
+        #         "success": True,
+        #         "filename": resume.filename,
+        #         "analysis_type": "TF-IDF Semantic Analysis",
+        #         "result": semantic_analysis
+        #     }
         
-        else:  # "advanced" - default
-            # Hybrid analysis (BEST) - Combines everything
-            hybrid_result = analyze_hybrid(resume_text, job_description)
+        # else:  # "advanced" - default
+        #     # Hybrid analysis (BEST) - Combines everything
+        #     hybrid_result = analyze_hybrid(resume_text, job_description)
             
-            return {
-                "success": True,
-                "filename": resume.filename,
-                "analysis_type": "Hybrid AI (Best Accuracy)",
-                "result": hybrid_result,
-                "final_recommendation": hybrid_result["recommendation"]
-            }
+        #     return {
+        #         "success": True,
+        #         "filename": resume.filename,
+        #         "analysis_type": "Hybrid AI (Best Accuracy)",
+        #         "result": hybrid_result,
+        #         "final_recommendation": hybrid_result["recommendation"]
+        #     }
     
     except Exception as e:
         traceback.print_exc()

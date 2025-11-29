@@ -1,0 +1,7 @@
+.cache/
+huggingface/
+server/cache/
+models/
+model/
+**/models/
+**/.cache/
